@@ -2,11 +2,8 @@
     font-family: 'Poppins', 'sans-serif';
 }
 
-body {
-    position: relative;
+body{
     margin: 0;
-    padding-bottom: 6rem;
-    min-height: 100%;
 }
 
 .bg{

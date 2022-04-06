@@ -25,8 +25,14 @@ Route::get('/about', function () {
     ]);
 })->name('about');
 
+Route::get('/rekomendasi', function () {
+    return view('rekomendasi',[
+        "title" => 'Rekomendasi',
+    ]);
+})->name('rekomendasi');
+
 Route::get('/blog', function () {
     return view('blog',[
-        "title" => 'Blog',
+        "title" => 'Category',
     ]);
-})->name('blog');
+})->name('category');

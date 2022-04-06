@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
     <title>{{ $title }}</title>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body>
     <section id="sec1" class=@yield('bg')>
         <div class="container header">
             @include('partials.navbar')
@@ -42,15 +42,13 @@
             @yield('category')
             <div class="container" style="position: relative">
                 <h3 class="mt-5 md-5 mb-5" style="text-align: center; font-weight: 600; ">@yield('judul')</h3>
-                <div class="container" style="position: absolute; width: 950px;">
+                <div class="container" style="position: absolute; width: @yield('widthBox');">
                     @yield('content')
                 </div>
                 <div class="container" style="position: absolute; right: 0; top: @yield('topBox'); width: 342px; height: @yield('heightBox'); box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); border-radius: 10px">
                     @yield('contentRight')
                 </div>
-                <div class="container" style="position: absolute; right: 0; width: 342px; height: 442px; box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); border-radius: 10px;">
-                    @yield('contentRight2')
-                </div>
+                @yield('contentRight2')
             </div>
         </div>
     </section>

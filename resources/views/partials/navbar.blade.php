@@ -21,5 +21,5 @@
 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 gap-5 navheader">
     <li><a href="/" class="nav-link {{ ($title == "Home") ? 'active' : '' }} px-2 text-dark">Home</a></li>
     <li><a href="/about" class="nav-link {{ ($title == "About") ? 'active' : '' }} px-2 text-dark">About</a></li>
-    <li><a href="#" class="nav-link px-2 text-dark">Blog</a></li>
+    <li><a href="/rekomendasi" class="nav-link px-2 text-dark">Recommendation</a></li>
 </ul>

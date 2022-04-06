@@ -12,6 +12,10 @@
     196px
 @endsection
 
+@section('widthBox')
+    920px
+@endsection
+
 @section('judulPage')
     About Me
 @endsection
@@ -39,6 +43,7 @@ pellentesque dignissim. Netus pharetra in pellentesque vitae ante neque duis nec
 @endsection
 
 @section('contentRight2')
+<div class="container" style="position: absolute; right: 0; width: 342px; height: 442px; box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); border-radius: 10px;">
     <img src="images/ava.png" alt="ava" width="202px" style="margin-bottom: 5px; margin-top: 15px">
     <p style="font-weight: 600; font-size: 36px">Kelompok 7</p>
     <p style="font-size: 15px">Lorem ipsum dolor sit am consectetur adipisc ing elit. In sed et donec purus viverra. Sit justo</p>
@@ -46,4 +51,5 @@ pellentesque dignissim. Netus pharetra in pellentesque vitae ante neque duis nec
     <p style="font-size: 18px; font-weight: 700; margin-top: 25px">Follow Me</p>
     <a class="btn btn-primary" style="background-color: #FFA902; border-radius: 20px; width: 40px; height: 40px; margin-right: 5px" href="#!" role="button"><i class="fab fa-instagram"></i></a>
     <a class="btn btn-primary" style="background-color: #FFA902; border-radius: 20px; width: 40px; height: 40px; margin-right: 5px" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+</div>
 @endsection
