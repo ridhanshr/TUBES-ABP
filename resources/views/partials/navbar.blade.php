@@ -1,8 +1,8 @@
 <header
     class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <a href="/home"
-        class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-decoration-none brandheader">Galli<span
-            style="color: grey">vant</span></a>
+        class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-decoration-none brandheader">Lombok<span
+            style="color: grey">Nation</span></a>
 
     <div class="col-md-4 mt-3">
         <div class="form-group searchicon">
