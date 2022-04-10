@@ -13,6 +13,7 @@ body{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;
 }
 
 .bgHome{
@@ -25,10 +26,16 @@ body{
 }
 
 .tengah{
-    position: relative;
+    position: absolute;
     text-align: center;
-    min-height: 100%;
-    height: 80vh;
+    width: 1200px;
+    height: 1200px;
+    border: 10px solid black;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
 }
 
 #isitengah{

@@ -24,8 +24,13 @@
     <div class="col-md-4 mt-3">
         <div class="form-group searchicon">
             <span class="fa fa-search form-control-feedback"></span>
-            <input type="search" class="form-control rounded-pill" placeholder="Search Location"
-                aria-label="search" style="margin-bottom: 10px">
+            <form action="/rekomendasi">
+                @if (request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
+                <input type="search" name="search" class="form-control rounded-pill" placeholder="Search Location" value="{{ request('search') }}"
+                    aria-label="search" style="margin-bottom: 10px">
+            </form>
         </div>
     </div>
 
@@ -35,11 +40,13 @@
     </div>
 </header>
 
-<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 gap-5 navheader">
-    <li><a href="/" class="nav-link {{ ($title == "Home") ? 'active' : '' }} px-2 text-dark">Home</a></li>
-    <li><a href="/about" class="nav-link {{ ($title == "About") ? 'active' : '' }} px-2 text-dark">About</a></li>
-    <li><a href="/rekomendasi" class="nav-link {{ ($title == "Post") ? 'active' : '' }} px-2 text-dark">Recommendation</a></li>
-</ul>
+<nav class="stroke"> 
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 gap-5 navheader">
+        <li><a href="/" class="nav-link {{ ($title == "Home") ? 'active' : '' }} px-2 text-dark">Home</a></li>
+        <li><a href="/about" class="nav-link {{ ($title == "About") ? 'active' : '' }} px-2 text-dark">About</a></li>
+        <li><a href="/rekomendasi" class="nav-link {{ ($title == "Post") ? 'active' : '' }} px-2 text-dark">Recommendation</a></li>
+    </ul>
+</nav>
 
 </body>
 </html>

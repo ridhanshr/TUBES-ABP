@@ -29,14 +29,14 @@
 @endsection
 
 @section('isiPage')
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed et donec purus viverra. Sit
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed et donec purus viverra. Sit
     justo velit, eu sed <br> sollicitudin tempus, risus. Sed sit elit mauris adipiscing.
     Lobortis pellentesque nulla accumsan id urna, ullamcorper <br> gravida varius. Massa mauris,
-    cursus orci magna non enim fames et sed.</p>
+    cursus orci magna non enim fames et sed.
 @endsection
 
 @section('category')
-    <h3 class="mt-5" style="text-align: center; font-weight: 600; ">Choose Category</h3>
+    <h3 style="text-align: center; font-weight: 600; ">Choose Category</h3>
     <div class="row mt-3 align-items-center d-flex justify-content-center">
         <div class="col-md-4 mt-3">
             <div class="card text-white mx-auto"
@@ -46,7 +46,7 @@
                 <div class="card-img-overlay align-items-center d-flex justify-content-center">
                     <h5 class="card-title">Places Recommendation</h5>
                 </div>
-                <a href="/categories/tour" class="stretched-link"></a>
+                <a href="/rekomendasi?category=tour" class="stretched-link"></a>
             </div>
         </div>
         <div class="col-md-4 mt-3">
@@ -57,26 +57,34 @@
                 <div class="card-img-overlay align-items-center d-flex justify-content-center">
                     <h5 class="card-title">Hotel Recommendation</h5>
                 </div>
-                <a href="/categories/hotel" class="stretched-link"></a>
+                <a href="/rekomendasi?category=hotel" class="stretched-link"></a>
             </div>
         </div>
     </div>
 @endsection
 
 @section('content')
-    @foreach ($posts as $post)
-        <article>
-            <img src="images/Meru-Temple-in-Lombok-Indonesia.jpg" alt="cat1"
-            style="border-radius: 20px; height: 221px; width: 370px; float: left; margin-right: 20px">
-            <h5>{{ $post['judul'] }}</h5>
-            <p style="font-size: 12px;color: #FFA902; margin-bottom: 5px">Location <span
-                style="color: gray">In</span> <span style="color: black">{{ $post['lokasi'] }}</span></p>
-            <p style="font-size: 12px;color: #FFA902; margin-bottom: 5px">Category <span
-                style="color: gray">:</span> <span style="color: black"> <a href="/categories/{{ $post->category->slug }}" style="text-decoration: none; color: #aaa">{{ $post->category->name}}</a></span></p>
-            <p style="font-size: 14px; color: gray">{{ $post['deskripsi'] }}</p>    
-            <p style="margin-bottom: 60px"></p>
-        </article>
-    @endforeach
+    @if ($posts->count())
+        @foreach ($posts as $post)
+            <article>
+                <img src="images/Meru-Temple-in-Lombok-Indonesia.jpg" alt="cat1"
+                style="border-radius: 20px; height: 221px; width: 370px; float: left; margin-right: 20px">
+                <h5>{{ $post['judul'] }}</h5>
+                <p style="font-size: 12px;color: #FFA902; margin-bottom: 5px">Location <span
+                    style="color: gray">In</span> <span style="color: black">{{ $post['lokasi'] }}</span></p>
+                <p style="font-size: 12px;color: #FFA902; margin-bottom: 5px">Category <span
+                    style="color: gray">:</span> <span style="color: black"> <a href="/rekomendasi?category={{ $post->category->slug }}" style="text-decoration: none; color: #aaa">{{ $post->category->name}}</a></span></p>
+                <p style="font-size: 14px; color: gray">{{ $post['deskripsi'] }}</p>    
+                <p style="margin-bottom: 60px"></p>
+            </article>
+        @endforeach
+    @else
+        <h1>No Post Found</h1>
+    @endif
+
+    <div class="d-flex justify-content-center">
+        {{ $posts->links() }}
+    </div>
 @endsection
 
 @section('contentRight')
