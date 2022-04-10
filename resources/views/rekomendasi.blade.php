@@ -44,7 +44,7 @@
                 <img src="images/gunungrinjanilombok21.jpg" class="card-img" alt="cat1"
                     style="border-radius: 20px; height: 221px; width: 370px;">
                 <div class="card-img-overlay align-items-center d-flex justify-content-center">
-                    <h5 class="card-title">Place Recommendation</h5>
+                    <h5 class="card-title">Places Recommendation</h5>
                 </div>
                 <a href="/categories/tour" class="stretched-link"></a>
             </div>
