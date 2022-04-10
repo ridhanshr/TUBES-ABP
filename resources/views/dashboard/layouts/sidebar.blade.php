@@ -4,7 +4,7 @@
     </div>
 
     <ul class="list-unstyled components">
-        <p>Nama Admin</p>
+        <p>{{auth()->user()->name}}</p>
         <li class="active">
             <a href="/dashboard">Home</a>
         </li>

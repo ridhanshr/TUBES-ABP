@@ -1,8 +1,13 @@
 <?php
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\registerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +19,17 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/login', [loginController::class, 'index'])->middleware('guest');
+Route::post('/login', [loginController::class, 'authenticate']);
+Route::post('/logout', [loginController::class, 'logout']);
+
+Route::get('/login', [loginController::class, 'indexDashboard'])->middleware('is_admin');
+Route::post('/login', [loginController::class, 'authenticate']);
+
+Route::get('/register', [registerController::class, 'index'])->middleware('guest');
+Route::post('/register', [registerController::class, 'store']);
+
 
 Route::get('/', function () {
     return view('home',[
@@ -45,9 +61,3 @@ Route::get('/categories/{category:slug}', function(Category $category) {
         'category' => $category->name
     ]);
 });
-
-Route::get('/admin', function () {
-    return view('dashboard/dashboard',[
-        "title" => 'Dashboard',
-    ]);
-})->name('admin');

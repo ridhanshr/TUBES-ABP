@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -34,19 +35,28 @@
         </div>
     </div>
 
-    <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-warning me-2">Login</button>
-        <button type="button" class="btn btn-warning">Sign-Up</button>
-    </div>
-</header>
+        <div class="col-md-5 text-end">
+            {{-- <ul class="navbar-nav"> --}}
+            @auth
+                Welcome, {{ auth()->user()->is_admin }}
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-warning me-2">Logout</button>
+                </form>
+            @else
+                <a class="btn btn-warning me-2" href="/login" role="button">Login</a>
+            @endauth
+            {{-- </ul> --}}
+        </div>
+    </header>
 
-<nav class="stroke"> 
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 gap-5 navheader">
-        <li><a href="/" class="nav-link {{ ($title == "Home") ? 'active' : '' }} px-2 text-dark">Home</a></li>
-        <li><a href="/about" class="nav-link {{ ($title == "About") ? 'active' : '' }} px-2 text-dark">About</a></li>
-        <li><a href="/rekomendasi" class="nav-link {{ ($title == "Post") ? 'active' : '' }} px-2 text-dark">Recommendation</a></li>
-    </ul>
-</nav>
+    <nav class="stroke"> 
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 gap-5 navheader">
+            <li><a href="/" class="nav-link {{ ($title == "Home") ? 'active' : '' }} px-2 text-dark">Home</a></li>
+            <li><a href="/about" class="nav-link {{ ($title == "About") ? 'active' : '' }} px-2 text-dark">About</a></li>
+            <li><a href="/rekomendasi" class="nav-link {{ ($title == "Post") ? 'active' : '' }} px-2 text-dark">Recommendation</a></li>
+        </ul>
+    </nav>
 
 </body>
 </html>
