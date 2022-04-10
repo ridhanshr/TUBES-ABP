@@ -13,15 +13,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="css/navstyle.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/scrolldown.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/scrolldown.css') }}">
     <title>{{ $title }}</title>
 </head>
 
 <body>
     <section id="sec1" class=@yield('bg')>
-        <div class="container header">
+        <div class="container">
             @include('partials.navbar')
 
             <div class="container tengah">
@@ -40,15 +39,19 @@
     <section id='sec2' class="mt-5">
         <div class="container">
             @yield('category')
-            <div class="container" style="position: relative">
-                <h3 class="mt-5 md-5 mb-5" style="text-align: center; font-weight: 600; ">@yield('judul')</h3>
-                <div class="container" style="position: absolute; width: @yield('widthBox');">
+            <h3 class="mt-5 md-5 mb-5" style="text-align: center; font-weight: 600; ">@yield('judul')</h3>
+            <div class="d-flex bd-highlight">
+                <div class="p-2 w-300 bd-highligt">
                     @yield('content')
+                </div>  
+                <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+                    <div class="p-2 bd-highligt mb-3" style="box-shadow:0px 1px 10px rgba(0,0,0,0.1); border-radius: 10px; height: @yield('heightBox1'); width: @yield('widthBox1');">
+                        @yield('contentRight2')
+                    </div>
+                    <div class="p-2 bd-highligt" style="box-shadow:0px 1px 10px rgba(0,0,0,0.1); border-radius: 10px; height: @yield('heightBox2'); width: @yield('widthBox2');">
+                        @yield('contentRight')
+                    </div>
                 </div>
-                <div class="container" style="position: absolute; right: 0; top: @yield('topBox'); width: 342px; height: @yield('heightBox'); box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); border-radius: 10px">
-                    @yield('contentRight')
-                </div>
-                @yield('contentRight2')
             </div>
         </div>
     </section>

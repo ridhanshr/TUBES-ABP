@@ -4,7 +4,7 @@
     color: #FFA902;
 }
 
-.navheader {
+.container .navheader {
     font-weight: 400;
     font-size: 15px;
 }
@@ -23,4 +23,9 @@
     text-align: center;
     pointer-events: none;
     color: #aaa;
+}
+
+.active{
+    color: #FFA902 !important;
+    text-decoration: underline;
 }

@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,23 +18,36 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home',[
         "title" => 'Home',
+        "active" => 'home'
     ]);
 })->name('home');
 
 Route::get('/about', function () {
     return view('about',[
         "title" => 'About',
+        "active" => 'about'
     ]);
 })->name('about');
 
-Route::get('/rekomendasi', function () {
-    return view('rekomendasi',[
-        "title" => 'Rekomendasi',
-    ]);
-})->name('rekomendasi');
+Route::get('/rekomendasi', [PostController::class, 'index']);
 
-Route::get('/blog', function () {
-    return view('blog',[
-        "title" => 'Category',
+Route::get('/categories', function() {
+    return view('categories', [
+        'title' => 'Post Categories',
+        'categories' => Category::all()
     ]);
-})->name('category');
+});
+
+Route::get('/categories/{category:slug}', function(Category $category) {
+    return view('category', [
+        'title' => $category->name,
+        'posts' => $category->posts,
+        'category' => $category->name
+    ]);
+});
+
+Route::get('/admin', function () {
+    return view('dashboard/dashboard',[
+        "title" => 'Dashboard',
+    ]);
+})->name('admin');
