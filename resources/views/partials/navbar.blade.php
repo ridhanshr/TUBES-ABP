@@ -38,7 +38,7 @@
         <div class="col-md-3 text-end">
             {{-- <ul class="navbar-nav"> --}}
             @auth
-                Welcome, {{ auth()->user()->name }}
+                Welcome, {{ auth()->user()->username }}
                 <form action="/logout" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-warning me-2">Logout</button>

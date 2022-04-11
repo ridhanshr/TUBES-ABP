@@ -4,7 +4,7 @@
     </div>
  
     <ul class="nav flex-column">
-        <p style="font-size: 14px">Welcome, admin {{auth()->user()->name}}</p>
+        <p style="font-size: 14px">Welcome, admin {{auth()->user()->username}}</p>
         <li class="nav-item">
         <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" style="color: aliceblue" href="/dashboard"> <span><i class="fa-solid fa-house-chimney"></i></span> Home</a>
         </li>
