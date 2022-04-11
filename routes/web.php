@@ -24,8 +24,8 @@ Route::get('/login', [loginController::class, 'index'])->middleware('guest');
 Route::post('/login', [loginController::class, 'authenticate']);
 Route::post('/logout', [loginController::class, 'logout']);
 
-Route::get('/login', [loginController::class, 'indexDashboard'])->middleware('is_admin');
-Route::post('/login', [loginController::class, 'authenticate']);
+Route::get('/dashboard', [loginController::class, 'indexDashboard'])->middleware('is_admin');
+Route::post('/dashboard', [loginController::class, 'authenticate']);
 
 Route::get('/register', [registerController::class, 'index'])->middleware('guest');
 Route::post('/register', [registerController::class, 'store']);

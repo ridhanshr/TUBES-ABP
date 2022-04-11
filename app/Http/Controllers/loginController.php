@@ -32,7 +32,7 @@ class loginController extends Controller
         if(Auth::attempt($credentials)){
             if (auth()->user()->is_admin == 1) {
                 $request->session()->regenerate();
-                return view('dashboard.index');
+                return redirect()->intended('/dashboard');
             }else{
                 // menghindari hacking
                 $request->session()->regenerate();
