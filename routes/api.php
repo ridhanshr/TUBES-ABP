@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\apiPostController;
+use App\Http\Controllers\apiUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/**
+ * route resource post
+ */
+Route::resource('/post',apiPostController::class);
+
+/**
+ * route resource user
+ */
+Route::resource('/user',apiUserController::class);

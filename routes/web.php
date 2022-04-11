@@ -33,7 +33,6 @@ Route::resource('/dashboard/users', dashboardUserController::class)->middleware(
 Route::get('/register', [registerController::class, 'index'])->middleware('guest');
 Route::post('/register', [registerController::class, 'store']);
 
-
 Route::get('/', function () {
     return view('home',[
         "title" => 'Home',
