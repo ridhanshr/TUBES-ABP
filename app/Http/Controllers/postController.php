@@ -11,7 +11,7 @@ class postController extends Controller
         return view('rekomendasi', [
             "title" => "Post",
             "active" => 'post',
-            "posts" => Post::latest()->filter(request(['search', 'category']))->paginate(5)->withQueryString()
+            "posts" => Post::latest()->filter(request(['search', 'category']))->paginate(3)->withQueryString()
         ]);
     }
 }

@@ -67,8 +67,13 @@
     @if ($posts->count())
         @foreach ($posts as $post)
             <article>
-                <img src="images/Meru-Temple-in-Lombok-Indonesia.jpg" alt="cat1"
-                style="border-radius: 20px; height: 221px; width: 370px; float: left; margin-right: 20px">
+                @if ($post->image)
+                    <img src="{{ asset('storage/'. $post->image) }}" alt="{{ $post->category->name }}"
+                    style="border-radius: 20px; height: 221px; width: 370px; float: left; margin-right: 20px">
+                @else
+                    <img src="images/kuta_beach_lombok.jpg" alt="{{ $post->category->name }}"
+                    style="border-radius: 20px; height: 221px; width: 370px; float: left; margin-right: 20px">
+                @endif
                 <h5>{{ $post['judul'] }}</h5>
                 <p style="font-size: 12px;color: #FFA902; margin-bottom: 5px">Location <span
                     style="color: gray">In</span> <span style="color: black">{{ $post['lokasi'] }}</span></p>

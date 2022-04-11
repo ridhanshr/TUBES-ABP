@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->string('lokasi');
             $table->text('deskripsi');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

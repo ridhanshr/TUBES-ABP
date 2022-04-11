@@ -35,7 +35,7 @@
         </div>
     </div>
 
-        <div class="col-md-5 text-end">
+        <div class="col-md-3 text-end">
             {{-- <ul class="navbar-nav"> --}}
             @auth
                 Welcome, {{ auth()->user()->name }}

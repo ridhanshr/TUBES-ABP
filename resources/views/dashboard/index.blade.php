@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-    <p>dsadas</p>
+    <p>Dashboard Lombok Nation</p>
 @endsection

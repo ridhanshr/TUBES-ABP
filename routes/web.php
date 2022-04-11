@@ -2,12 +2,13 @@
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\dashboardPostController;
+use App\Http\Controllers\dashboardUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::post('/logout', [loginController::class, 'logout']);
 
 Route::get('/dashboard', [loginController::class, 'indexDashboard'])->middleware('is_admin');
 Route::post('/dashboard', [loginController::class, 'authenticate']);
+Route::resource('/dashboard/posts', dashboardPostController::class)->middleware('is_admin');
+Route::resource('/dashboard/users', dashboardUserController::class)->middleware('is_admin');
 
 Route::get('/register', [registerController::class, 'index'])->middleware('guest');
 Route::post('/register', [registerController::class, 'store']);
