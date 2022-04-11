@@ -4,7 +4,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\postController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\dashboardPostController;
@@ -47,7 +47,7 @@ Route::get('/about', function () {
     ]);
 })->name('about');
 
-Route::get('/rekomendasi', [PostController::class, 'index']);
+Route::get('/rekomendasi', [postController::class, 'index']);
 
 Route::get('/categories', function() {
     return view('categories', [
